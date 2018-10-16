@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
 	char* nextGenBuffer;
 	int generation = 0, i, j, maxgen, flag;
 	char inp;
-	int size = 0;
+	int size = 6;
 	flag = 1;
 	maxgen = atoi(argv[2]);
 	FILE * input = fopen(argv[1], "r");
@@ -29,17 +29,15 @@ int main(int argc, char **argv) {
 	if(input == 0 || output == 0){
 		fprintf(stderr, "erro");
 	}
-	fscanf(input,"%d\n",&size);
 	buffer =(char*) malloc((size*size) * sizeof(char));
 	nextGenBuffer =(char*) malloc((size*size) * sizeof(char));
-	printf("%d\n", size);
 	for(i = 0; i < size; i++) {
 		for(j = 0; j < size; j++) {
 			fscanf(input, "%c", &inp);
 			set(buffer, size, i, j, inp);
-			//printf("%c", get(buffer, size, i, j)  );
+			// printf("%c", get(buffer, size, i, j)  );
 		}
-		//printf("\n");
+		// printf("\n");
 		fscanf(input, "\n");
 	}
 	
@@ -106,10 +104,10 @@ void draw(FILE* output, char * buffer, int size) {
 	for(i = 0; i < size; i++) {
 		for(j = 0; j < size; j++) {
 			printf("%c", get(buffer, size, i, j));
-			//fprintf(output,"%c", get(buffer, size, i, j));
+			// fprintf(output,"%c", get(buffer, size, i, j));
 		}
 		printf("\n");
-		//fprintf(output,"\n");
+		// fprintf(output,"\n");
 	}
 }
 
